@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Spaghetti Bolognese",
+      "imageURL": "/images/popular/spaghetti-bolognese.png",
+      "type": "Italian",
+      "starRate": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Chicken Alfredo",
+      "imageURL": "https://example.com/chicken-alfredo.jpg",
+      "type": "Italian",
+      "starRate": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Vegetarian Stir Fry",
+      "imageURL": "https://example.com/vegetarian-stir-fry.jpg",
+      "type": "Asian",
+      "starRate": 4.3
+    },
+    {
+      "id": 4,
+      "name": "Grilled Salmon",
+      "imageURL": "https://example.com/grilled-salmon.jpg",
+      "type": "Seafood",
+      "starRate": 4.6
+    },
+    {
+      "id": 5,
+      "name": "Classic Margherita Pizza",
+      "imageURL": "https://example.com/margherita-pizza.jpg",
+      "type": "Italian",
+      "starRate": 4.7
+    }
+  ]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CulinaChron | Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/main.js" type="module"></script>
+    
+  </head>
+  <body>
+    <header class="divider" id="main-header">
+      <nav class="nav-buttons">
+        <!-- Navigation buttons -->
+        <a href="#home">Home</a>
+        <a href="#my-recipes">My Recipes</a>
+        <a href="#add-recipe">Add Recipe</a>
+    </nav>
+    </header>
+    <main class="divider">
+      <div class="hero">
+        <img
+          src="/images/banner.png"
+          alt="image paper"
+        />
+        <div id="recipeCarousel" class="recipeCarousel"></div>
+        <div class="logo logo--square">
+          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+          <div>Sleep<span class="highlight">Outside</span></div>
+        </div>
+      </div>
+      
+      <section class="products">
+        <h2>Top Products</h2>
+        <section class="icons">
+          <a href="./product-list/index.html?category=tents">
+            <img
+              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Tent_3544767.svg"
+              alt="Tent Icon from Noun Project: Mustofa Bayu"
+            />
+            <h2>Tents</h2>
+          </a>
+          <a href="./product-list/index.html?category=backpacks">
+            <img
+              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_carrier%20bag_3544771.svg"
+              alt="Backpack Icon from Noun Project: Mustofa Bayu"
+            />
+            <h2>Backpacks</h2>
+          </a>
+          <a href="./product-list/index.html?category=sleeping-bags">
+            <img
+              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Sleeping%20Bag_3544775.svg"
+              alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu"
+            />
+            <h2>Sleeping Bags</h2>
+          </a>
+          <a href="./product-list/index.html?category=hammocks">
+            <img
+              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Hammock_791143.svg"
+              alt="Hammock Icon Icon from Noun Project: Mustofa Bayu"
+            />
+            <h2>Hammocks</h2>
+          </a>
+        </section>
+      </section>
+      <section class="newsletterbox">
+        <h3>Subscribe in our Newsletter</h3>
+        <p>Get updates about special offers firsthand! </p>
+        <form name="subscribe">
+          <label for="name">Name:</label><br />
+          <input required type="text" id="name" name="name" placeholder="Jhon Doe"
+          /><br />
+          <label for="email">Email:</label><br />
+          <input required type="email" id="email" name="email" placeholder="johndoe@email.com"
+          /><br />
+          <button id="subscribeToNews" type="submit">Ready to sign up!</button>
+        </form>
+      </section>
+    </main>
+    <footer id="main-footer">
+      <!-- &copy;NOT a real business -->
+    </footer>
+  </body>
+</html>

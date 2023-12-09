@@ -9,28 +9,28 @@
     {
       "id": 2,
       "name": "Chicken Alfredo",
-      "imageURL": "https://example.com/chicken-alfredo.jpg",
+      "imageURL": "/images/popular/chicken-alfredo.png",
       "type": "Italian",
       "starRate": 4.8
     },
     {
       "id": 3,
       "name": "Vegetarian Stir Fry",
-      "imageURL": "https://example.com/vegetarian-stir-fry.jpg",
+      "imageURL": "/images/popular/vegetarian-stir-fry.png",
       "type": "Asian",
       "starRate": 4.3
     },
     {
       "id": 4,
       "name": "Grilled Salmon",
-      "imageURL": "https://example.com/grilled-salmon.jpg",
+      "imageURL": "/images/popular/grilled-salmon.png",
       "type": "Seafood",
       "starRate": 4.6
     },
     {
       "id": 5,
       "name": "Classic Margherita Pizza",
-      "imageURL": "https://example.com/margherita-pizza.jpg",
+      "imageURL": "/images/popular/margherita-pizza.png",
       "type": "Italian",
       "starRate": 4.7
     }

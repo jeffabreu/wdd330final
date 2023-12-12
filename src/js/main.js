@@ -1,27 +1,18 @@
-// import { loadHeaderFooter, searchBar } from "./utils.mjs";
-// import Alert from "./alert.js";
 
-// const alertInstance = new Alert();
-// alertInstance.AlertsDatafetch().then(() => alertInstance.buildAlertElements());
-
-// async function main() {
-  
-//   searchBar();
-// }
-
-// main();
-
+// Wait for the DOM content to be fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', () => {
   let sliderInterval; // Variable to store the interval ID
 
-  // Fetch the JSON data
+  // Fetch JSON data from the 'popular.json' file
   fetch('json/popular.json')
     .then(response => response.json())
     .then(data => {
       // Process the data and update the carousel
       const recipeCarouselElement = document.getElementById('container-images');
 
+      // Iterate through each recipe in the data
       data.forEach(recipe => {
+        // Create a div element for each recipe and add it to the carousel
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('slider');
         recipeCard.innerHTML = `
@@ -31,25 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>Type: ${recipe.type}</p>
           <p>Star Rate: ${recipe.starRate}</p>
           </div>
-          
         `;
         recipeCarouselElement.appendChild(recipeCard);
       });
 
+      // Set up variables and functions for the image slider
       const slider = document.querySelectorAll(".slider");
       const btnPrev = document.getElementById("prev-button");
       const btnNext = document.getElementById("next-button");
 
       let currentSlide = 0;
 
+      // Function to hide all slides
       function hideSlider() {
         slider.forEach(item => item.classList.remove("on"));
       }
 
+      // Function to show the current slide
       function showSlider() {
         slider[currentSlide].classList.add("on");
       }
 
+      // Function to move to the next slide
       function nextSlider() {
         hideSlider();
         if (currentSlide == slider.length - 1) {
@@ -60,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlider();
       }
 
+      // Function to move to the previous slide
       function prevSlider() {
         hideSlider();
         if (currentSlide == 0) {
@@ -70,14 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlider();
       }
 
+      // Function to start the automatic slider interval
       function startSliderInterval() {
         sliderInterval = setInterval(nextSlider, 3000); 
       }
 
+      // Function to stop the automatic slider interval
       function stopSliderInterval() {
         clearInterval(sliderInterval);
       }
 
+      // Event listeners for next and previous buttons
       btnNext.addEventListener("click", () => {
         stopSliderInterval();
         nextSlider();
@@ -92,115 +90,135 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Start the automatic slider
       startSliderInterval();
+      // Call the function to update watch later items quantity
+      updateWatchLaterItemsQuantity();
     })
     .catch(error => console.error('Error fetching data:', error));
 });
 
-
-
+// Additional code for meal search and details
 const searchBtn = document.getElementById('search-btn');
 const mealList = document.getElementById('meal');
 const mealDetailsContent = document.querySelector('.meal-details-content');
 const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
-// event listeners
+// Event listeners for search, meal selection, and recipe close
 searchBtn.addEventListener('click', getMealList);
 mealList.addEventListener('click', getMealRecipe);
 recipeCloseBtn.addEventListener('click', () => {
-    mealDetailsContent.parentElement.classList.remove('showRecipe');
+  mealDetailsContent.parentElement.classList.remove('showRecipe');
 });
 
-
-// get meal list that matches with the ingredients
-function getMealList(){
-    let searchInputTxt = document.getElementById('search-input').value.trim();
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
+// Function to get meal list that matches with the ingredients
+function getMealList() {
+  let searchInputTxt = document.getElementById('search-input').value.trim();
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
     .then(response => response.json())
     .then(data => {
-        let html = "";
-        if(data.meals){
-            data.meals.forEach(meal => {
-                html += `
-                    <div class = "meal-item" data-id = "${meal.idMeal}">
-                        <div class = "meal-img">
-                            <img src = "${meal.strMealThumb}" alt = "food">
-                        </div>
-                        <div class = "meal-name">
-                            <h3>${meal.strMeal}</h3>
-                            <a href = "#" class = "recipe-btn">Get Recipe</a>
-                        </div>
-                    </div>
-                `;
-            });
-            mealList.classList.remove('notFound');
-        } else{
-            html = "Sorry, we didn't find any meal!";
-            mealList.classList.add('notFound');
-        }
+      let html = "";
+      if (data.meals) {
+        // Generate HTML for each meal in the list
+        data.meals.forEach(meal => {
+          html += `
+            <div class="meal-item" data-id="${meal.idMeal}">
+                <div class="meal-img">
+                    <img src="${meal.strMealThumb}" alt="food">
+                </div>
+                <div class="meal-name">
+                    <h3>${meal.strMeal}</h3>
+                    <a href="#" class="recipe-btn">Open Recipe</a>
+                </div>
+            </div>
+          `;
+        });
+        mealList.classList.remove('notFound');
+      } else {
+        // Display a message if no meals are found
+        html = "Sorry, we didn't find anything in our database! Make sure you spelled it right.";
+        mealList.classList.add('notFound');
+      }
 
-        mealList.innerHTML = html;
+      // Update the meal list HTML
+      mealList.innerHTML = html;
     });
 }
 
-
-// get recipe of the meal
-function getMealRecipe(e){
-    e.preventDefault();
-    if(e.target.classList.contains('recipe-btn')){
-        let mealItem = e.target.parentElement.parentElement;
-        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
-        .then(response => response.json())
-        .then(data => mealRecipeModal(data.meals));
-    }
+// Function to get the recipe details of a selected meal
+function getMealRecipe(e) {
+  e.preventDefault();
+  if (e.target.classList.contains('recipe-btn')) {
+    // Retrieve the selected meal item
+    let mealItem = e.target.parentElement.parentElement;
+    // Fetch the recipe details using the meal's ID
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+      .then(response => response.json())
+      .then(data => mealRecipeModal(data.meals));
+  }
 }
 
-
-// create a modal
+// Function to create a modal with meal recipe details
 function mealRecipeModal(meal) {
   meal = meal[0];
   let html = `
-      <h2 class="recipe-title">${meal.strMeal}</h2>
-      <p class="recipe-category">${meal.strCategory}</p>
-      <div class="recipe-instruct">
-          <h3>Instructions:</h3>
-          <p>${meal.strInstructions}</p>
-      </div>
-      <div class="recipe-meal-img">
-          <img src="${meal.strMealThumb}" alt="">
-      </div>
-      <div class="recipe-link">
-          <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
-      </div>
-      <button id="watchLaterBtn">Watch Later</button>
+    <h2 class="recipe-title">${meal.strMeal}</h2>
+    <p class="recipe-category">${meal.strCategory}</p>
+    <div class="recipe-instruct">
+        <h3>Instructions:</h3>
+        <p>${meal.strInstructions}</p>
+    </div>
+    <div class="recipe-meal-img">
+        <img src="${meal.strMealThumb}" alt="">
+    </div>
+    <div class="recipe-link">
+        <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
+    </div>
+    <button id="watchLaterBtn" class="watch-later">+ watch later</button>
   `;
+  // Update the meal details content with the modal HTML
   mealDetailsContent.innerHTML = html;
+  // Display the recipe modal
   mealDetailsContent.parentElement.classList.add('showRecipe');
 
   // Add event listener for Watch Later button
   const watchLaterBtn = document.getElementById('watchLaterBtn');
   watchLaterBtn.addEventListener('click', () => {
-      addToWatchLater(meal);
+    addToWatchLater(meal);
   });
 }
 
-// function to add meal to Watch Later
-function addToWatchLater(meal) {
-  // Retrieve existing Watch Later items from local storage or initialize an empty array
-  const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
+  // Function to add a meal to Watch Later
+  function addToWatchLater(meal) {
+    // Retrieve existing Watch Later items from local storage or initialize an empty array
+    const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
 
-  // Check if the meal is already in Watch Later
-  const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
+    // Check if the meal is already in Watch Later
+    const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
 
-  if (!isAlreadyInWatchLater) {
-      // Add the meal to Watch Later
-      watchLaterItems.push(meal);
+    if (!isAlreadyInWatchLater) {
+        // Add the meal to Watch Later
+        watchLaterItems.push(meal);
 
-      // Update local storage
-      localStorage.setItem('watchLaterItems', JSON.stringify(watchLaterItems));
+        // Update local storage
+        localStorage.setItem('watchLaterItems', JSON.stringify(watchLaterItems));
 
-      // Optionally, provide some feedback to the user
-      alert('Added to Watch Later!');
-  } else {
-      alert('This meal is already in Watch Later.');
-  }
+        // Alert to identify it was added
+        alert('Added to Watch Later!');
+
+        // Update the watch later items quantity display
+        updateWatchLaterItemsQuantity();
+    } else {
+        alert('This meal is already in Watch Later.');
+    }
+}
+
+// Function to update the watch later items quantity display
+// obs I need to use this in the other pages
+function updateWatchLaterItemsQuantity() {
+    const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
+    const watchLaterQuantity = watchLaterItems.length;
+
+    // Update the quantity display
+    const toWatchNumber = document.getElementById('to-watch-number');
+    toWatchNumber.textContent = watchLaterQuantity.toString();
+
 }

@@ -13,9 +13,10 @@
         <!-- Navigation buttons -->
         <a href="#home">Home</a>
         <a href="/my-recipe-list/index.html">My Recipes</a>
-        <a href="#add-recipe">Add Recipe</a>
+        <a href="/add-recipe/index.html">Add Recipe</a>
     </nav>
-    <a href="#watchlater"></a>
+    <a href="/watch-later/index.html" id="watchLater" class="watch-later-btn">to watch <p id="to-watch-number" class="to-watch-number"></p></a>
+    
     </header>
     <main class="divider">
       <div class="hero">
@@ -26,23 +27,30 @@
         />
         <div class="hero-content">
         <div id="recipeCarousel" class="recipeCarousel">
-          
-          <div id="container-images" class="container-images">
-            <div class="slider on">
-         
-              <div><img src="/images/popular/beef-wellington.png" alt="Beef wellington"></div>
-              <div class="recipe-info">
-              <h2>Beef wellington</h2>
-              <p>Italian</p>
-              <p>Star Rate: 5.0</p>
-              </div>
-              
-           
-          </div>
-          
-          </div>
-          <div class="buttons-control">
-            <button id="prev-button">⇐</button><button id="next-button" class="next-button">⇒</button>
+          <div class="popular">
+                  <div id="container-images" class="container-images">
+                    <div class="slider on">
+                
+                      <div><img src="/images/popular/beef-wellington.png" alt="Beef wellington"></div>
+                      <div class="recipe-info">
+                      <h2>Beef wellington</h2>
+                      <p>Italian</p>
+                      <p>Star Rate: 5.0</p>
+                      </div>
+                      
+                  
+                  </div>
+                  
+                  </div>
+                  <div class="buttons-control">
+                    <button id="prev-button"><img src="/images/back-button.png" alt="" srcset=""></button><button id="next-button" class="next-button"><img src="/images/next-button.png" alt="" srcset=""></button>
+                </div>
+        </div>
+        
+        <div class="quote">
+          <p>"We do not live to eat,  <br>
+            but eat to live."</p>
+          <strong> Socrates</strong>
         </div>
           </div>
          
@@ -83,7 +91,7 @@
             <div class = "meal-details">
               <!-- recipe close btn -->
               <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn">
-                x
+                <img src="/images/exit.png" alt="" srcset="">
               </button>
       
               <!-- meal content -->

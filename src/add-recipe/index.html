@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Product List</title>
+    <title>CulinaChron | Add recipe</title>
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/submit.js" ></script>
     <script src="/js/form.js"></script>
@@ -16,25 +16,30 @@
         <a href="/my-recipe-list/index.html">My Recipes</a>
         <a href="/add-recipe/index.html">Add Recipe</a>
     </nav>
+    <a href="/watch-later/index.html" id="watchLater" class="watch-later-btn">to watch <p id="to-watch-number" class="to-watch-number"></p></a>
+    
     </header>
    
     <h1>Add a New Recipe</h1>
 
-    <form id="recipeForm">
+    <form id="recipeForm" class="recipeForm">
       <label for="recipeName">Recipe Name:</label>
       <input type="text" id="recipeName" required>
 
       <label for="ingredients">Ingredients:</label>
       <ul id="ingredientsList"></ul>
+      <div class="add-ingridient-box">
       <input type="text" id="ingredientInput" placeholder="Add ingredient">
-      <button type="button" onclick="addIngredient()">Add</button>
+      <button type="button" class="add-ingridient-button" onclick="addIngredient()">+</button>
+    </div>
 
       <label for="instructions">Instructions:</label>
       <textarea id="instructions" required></textarea>
 
-      <button type="submit">Save Recipe</button>
+      <button type="submit" class="submit-btn">Save Recipe</button>
+      <button type="button" class="view-btn" onclick="viewAllRecipes()">View All Recipes</button>
       <div class="recipeList" id="recipeList"></div>
-      <button type="button" onclick="viewAllRecipes()">View All Recipes</button>
+      
      <footer id="main-footer"></footer>
      <script>
       

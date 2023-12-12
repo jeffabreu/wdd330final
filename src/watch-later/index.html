@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CulinaChron | Recipe List</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/recipes.js" ></script>
+    <script src="/js/watch-later.js" ></script>
   </head>
   <body>
     <header class="divider" id="main-header">
@@ -15,16 +16,13 @@
         <a href="/my-recipe-list/index.html">My Recipes</a>
         <a href="/add-recipe/index.html">Add Recipe</a>
     </nav>
-    <a href="/watch-later/index.html" id="watchLater" class="watch-later-btn">to watch <p id="to-watch-number" class="to-watch-number"></p></a>
-    
     </header>
-   
-    <div id="recipeDetails" ></div>
-    <h1>All Recipes</h1>
-    <ul id="recipeList" class="recipeDetails"></ul>
-  
-
+    <main class="divider">
+      <section class="watch-later-list">
+        <h2>Watch Later List</h2>
+        <ul id="watchLaterList"></ul>
+      </section>
+    </main>
     <footer id="main-footer"></footer>
-    
   </body>
 </html>

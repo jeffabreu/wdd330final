@@ -1,37 +1,87 @@
 [
-    {
+  {
       "id": 1,
       "name": "Spaghetti Bolognese",
       "imageURL": "/images/popular/spaghetti-bolognese.png",
       "type": "Italian",
-      "starRate": 4.5
-    },
-    {
+      "starRate": 4.5,
+      "ingredients": [
+          "200g spaghetti",
+          "300g ground beef",
+          "1 onion, chopped",
+          "2 cloves garlic, minced",
+          "400g canned tomatoes",
+          "1 teaspoon dried oregano",
+          "1 teaspoon dried basil",
+          "Salt and pepper to taste"
+      ],
+      "instructions": "1. Cook spaghetti according to package instructions. 2. In a pan, brown ground beef with onions and garlic. 3. Add canned tomatoes, oregano, basil, salt, and pepper. Simmer for 15 minutes. 4. Serve sauce over cooked spaghetti."
+  },
+  {
       "id": 2,
       "name": "Chicken Alfredo",
       "imageURL": "/images/popular/chicken-alfredo.png",
       "type": "Italian",
-      "starRate": 4.8
-    },
-    {
+      "starRate": 4.8,
+      "ingredients": [
+          "250g fettuccine pasta",
+          "1 cup cooked chicken, shredded",
+          "1 cup heavy cream",
+          "1/2 cup Parmesan cheese, grated",
+          "2 cloves garlic, minced",
+          "2 tablespoons butter",
+          "Salt and pepper to taste"
+      ],
+      "instructions": "1. Cook fettuccine pasta according to package instructions. 2. In a saucepan, melt butter and sauté garlic. 3. Add heavy cream, Parmesan cheese, cooked chicken, salt, and pepper. 4. Simmer until the sauce thickens. 5. Toss the sauce with cooked pasta and serve."
+  },
+  {
       "id": 3,
       "name": "Vegetarian Stir Fry",
       "imageURL": "/images/popular/vegetarian-stir-fry.png",
       "type": "Asian",
-      "starRate": 4.3
-    },
-    {
+      "starRate": 4.3,
+      "ingredients": [
+          "2 cups mixed vegetables (broccoli, bell peppers, carrots)",
+          "1 cup tofu, cubed",
+          "3 tablespoons soy sauce",
+          "1 tablespoon sesame oil",
+          "2 cloves garlic, minced",
+          "1 teaspoon ginger, grated",
+          "2 tablespoons vegetable oil",
+          "Cooked rice for serving"
+      ],
+      "instructions": "1. In a wok or skillet, heat vegetable oil. 2. Add garlic and ginger, sauté until fragrant. 3. Add tofu and stir-fry until golden. 4. Add mixed vegetables, soy sauce, and sesame oil. Stir-fry until vegetables are tender. 5. Serve over cooked rice."
+  },
+  {
       "id": 4,
       "name": "Grilled Salmon",
       "imageURL": "/images/popular/grilled-salmon.png",
       "type": "Seafood",
-      "starRate": 4.6
-    },
-    {
+      "starRate": 4.6,
+      "ingredients": [
+          "4 salmon fillets",
+          "2 tablespoons olive oil",
+          "1 lemon, sliced",
+          "2 cloves garlic, minced",
+          "1 teaspoon dried dill",
+          "Salt and pepper to taste"
+      ],
+      "instructions": "1. Preheat grill to medium-high heat. 2. Brush salmon fillets with olive oil and season with salt, pepper, and dried dill. 3. Place salmon on the grill and cook for 4-5 minutes per side or until the fish flakes easily. 4. Serve with sliced lemon."
+  },
+  {
       "id": 5,
       "name": "Classic Margherita Pizza",
       "imageURL": "/images/popular/margherita-pizza.png",
       "type": "Italian",
-      "starRate": 4.7
-    }
-  ]
+      "starRate": 4.7,
+      "ingredients": [
+          "1 pizza dough",
+          "1/2 cup pizza sauce",
+          "1 cup fresh mozzarella, sliced",
+          "Fresh basil leaves",
+          "1 tablespoon olive oil",
+          "Salt and pepper to taste"
+      ],
+      "instructions": "1. Preheat oven to the highest temperature. 2. Roll out pizza dough and spread pizza sauce. 3. Arrange fresh mozzarella slices and fresh basil leaves. 4. Drizzle with olive oil and season with salt and pepper. 5. Bake in the oven until crust is golden and cheese is melted."
+  }
+]

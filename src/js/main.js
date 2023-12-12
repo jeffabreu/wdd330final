@@ -1,4 +1,3 @@
-
 // Wait for the DOM content to be fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', () => {
   let sliderInterval; // Variable to store the interval ID
@@ -11,19 +10,39 @@ document.addEventListener('DOMContentLoaded', () => {
       const recipeCarouselElement = document.getElementById('container-images');
 
       // Iterate through each recipe in the data
-      data.forEach(recipe => {
+      data.forEach((recipe, index) => {
         // Create a div element for each recipe and add it to the carousel
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('slider');
         recipeCard.innerHTML = `
           <div><img src="${recipe.imageURL}" alt="${recipe.name}"></div>
           <div class="recipe-info">
-          <h2>${recipe.name}</h2>
-          <p>Type: ${recipe.type}</p>
-          <p>Star Rate: ${recipe.starRate}</p>
+            <h2>${recipe.name}</h2>
+            <p>Type: ${recipe.type}</p>
+            <p>Star Rate: ${recipe.starRate}</p>
           </div>
         `;
         recipeCarouselElement.appendChild(recipeCard);
+
+        recipeCard.addEventListener('click', () => {
+          // Redirect to the add recipe page with the recipe data as query parameters
+          const queryParams = new URLSearchParams();
+
+          // Check if it's an existing recipe (edit mode)
+          if (index !== undefined) {
+            queryParams.set('edit', index.toString());
+          } else {
+            queryParams.set('edit', '0'); // Set to '0' for a new recipe
+          }
+
+          // Add recipe data to query parameters
+          queryParams.set('name', recipe.name);
+          queryParams.set('ingredients', JSON.stringify(recipe.ingredients));
+          queryParams.set('instructions', recipe.instructions);
+
+          // Navigate to the add recipe page with the query parameters
+          window.location.href = `/add-recipe/index.html?${queryParams.toString()}`;
+        });
       });
 
       // Set up variables and functions for the image slider
@@ -67,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Function to start the automatic slider interval
       function startSliderInterval() {
-        sliderInterval = setInterval(nextSlider, 3000); 
+        sliderInterval = setInterval(nextSlider, 3000);
       }
 
       // Function to stop the automatic slider interval
@@ -186,39 +205,38 @@ function mealRecipeModal(meal) {
   });
 }
 
-  // Function to add a meal to Watch Later
-  function addToWatchLater(meal) {
-    // Retrieve existing Watch Later items from local storage or initialize an empty array
-    const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
+// Function to add a meal to Watch Later
+function addToWatchLater(meal) {
+  // Retrieve existing Watch Later items from local storage or initialize an empty array
+  const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
 
-    // Check if the meal is already in Watch Later
-    const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
+  // Check if the meal is already in Watch Later
+  const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
 
-    if (!isAlreadyInWatchLater) {
-        // Add the meal to Watch Later
-        watchLaterItems.push(meal);
+  if (!isAlreadyInWatchLater) {
+    // Add the meal to Watch Later
+    watchLaterItems.push(meal);
 
-        // Update local storage
-        localStorage.setItem('watchLaterItems', JSON.stringify(watchLaterItems));
+    // Update local storage
+    localStorage.setItem('watchLaterItems', JSON.stringify(watchLaterItems));
 
-        // Alert to identify it was added
-        alert('Added to Watch Later!');
+    // Alert to identify it was added
+    alert('Added to Watch Later!');
 
-        // Update the watch later items quantity display
-        updateWatchLaterItemsQuantity();
-    } else {
-        alert('This meal is already in Watch Later.');
-    }
+    // Update the watch later items quantity display
+    updateWatchLaterItemsQuantity();
+  } else {
+    alert('This meal is already in Watch Later.');
+  }
 }
 
 // Function to update the watch later items quantity display
 // obs I need to use this in the other pages
 function updateWatchLaterItemsQuantity() {
-    const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
-    const watchLaterQuantity = watchLaterItems.length;
+  const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
+  const watchLaterQuantity = watchLaterItems.length;
 
-    // Update the quantity display
-    const toWatchNumber = document.getElementById('to-watch-number');
-    toWatchNumber.textContent = watchLaterQuantity.toString();
-
+  // Update the quantity display
+  const toWatchNumber = document.getElementById('to-watch-number');
+  toWatchNumber.textContent = watchLaterQuantity.toString();
 }

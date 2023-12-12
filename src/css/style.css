@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Coda:wght@800&family=Gidugu&family=Ubuntu:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 :root {
   --font-body: 'Amatic SC', Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-headline: 'Agbalumo', "Arial Narrow Bold", sans-serif;
   /* colors */
-  --primary-color: #f0a868;
+  --primary-color: rgb(247, 236, 171);
   --secondary-color: #525b0f;
   --tertiary-color: #a4b8c4;
   --light-grey: #d0d0d0;
@@ -22,7 +25,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--font-base);
   color: var(--dark-grey);
-  background-color: rgb(247, 236, 171);
+  background-color: var(--primary-color);
 }
 img {
   max-width: 100%;
@@ -33,82 +36,18 @@ header {
   padding: 0 10px;
   flex-wrap: wrap;
 }
-.logo {
-  line-height: 60px;
-  width: 245px;
-  overflow: hidden;
-  display: flex;
-  font-size: 30px;
-  text-align: right;
+h2 {
   font-family: var(--font-headline);
 }
-.logo img {
-  width: 60px;
-  height: 60px;
-}
-.logo a {
-  text-decoration: none;
-  color: var(--font-body);
-}
 
-/*This section is for the nav and search bar items*/
-.search-bar-container {
-  display: block;
-  width: 100%;
-}
 
-#search {
-  font-size: 1rem;
-}
-
-#category-search {
-  font-size: 1rem;
-  height: 1.5rem;
-}
-
-.category-searchbar-label {
-  margin-right: -5px;
-}
-
-.product-search-card.hide {
-  display: none;
-}
-
-.product-search-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  padding: 0.5rem 0.5rem;
-}
-
-.product-search-card {
-  display: grid;
-  grid-template-columns: 100px 1fr 150px;
-  list-style: none;
-  border: solid black 0.1rem;
-  padding: 0.5rem 1rem;
-}
-
-.product-search-card a img {
-  width: 90%;
-}
-
-.product-search-card a {
-  text-decoration: none;
-  color: black;
-  font-size: 0.7rem;
-}
-
-.product-search-price {
-  display: inline-block;
-  font-size: 1rem;
-  vertical-align: top;
-}
 .hero {
   position: relative;
   margin-top: 50px;
   margin-bottom: 50px;
   
 }
+
 .hero .logo {
   position: sticky;
   left: calc(50% - 60px);
@@ -158,11 +97,10 @@ header {
 }
 
 button {
-  padding: 5px;
+  
   background-color: transparent;
   color: rgb(0, 0, 0);
   display: flex;
-  margin: auto;
   font-size: 30px;
   border: 0;
   cursor: pointer;
@@ -170,437 +108,16 @@ button {
 }
 
 .divider {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid rgb(144, 77, 56);
 }
 /* End utility classes */
 
-/* Cart icon styles */
-.cart {
-  padding-top: 1em;
-  position: relative;
-  text-align: center;
-}
 
-.cart svg {
-  width: 25px;
-}
-.cart:hover svg {
-  fill: gray;
-}
 
-#cart-count {
-  position: absolute;
-  top: 5px;
-  right: 0;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 3px 6px;
-  font-size: 10px;
-}
 
-#checkoutBtn {
-  display: none;
-}
 
-/* Checkout Form */
 
-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
 
-form label.form-label {
-  display: block;
-  margin-top: 0.5rem;
-}
-
-form input {
-  display: block;
-  width: 95%;
-  height: 44px;
-  font-size: 1rem;
-}
-
-#checkout-btn {
-  margin: 1rem auto;
-}
-
-.alert {
-  background-color: #f0a868;
-  border: #f69d3d 4px solid;
-  max-width: 80%;
-  margin: 1rem auto;
-  padding-left: 2rem;
-  position: relative;
-  padding: 0.5rem;
-}
-
-.alert p {
-  display: inline;
-}
-
-#closeX {
-  position: absolute;
-  right: 5%;
-}
-/* NewsLetter Style*/
-.newsletterbox {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border: 1px black solid;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 500px;
-}
-/* End cart icon styles */
-
-.mission {
-  padding: 0 0.5em;
-  /* margin: 0.5em 0; */
-  line-height: 1.3;
-  max-width: 600px;
-  margin: auto;
-}
-.products {
-  padding: 0.5em;
-}
-.product-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
-}
-.product-list a {
-  text-decoration: none;
-  color: var(--dark-grey);
-}
-/* Styles for product lists */
-.product-card {
-  flex: 1 1 45%;
-  margin: 0.25em;
-  padding: 0.5em;
-  border: 1px solid var(--light-grey);
-  max-width: 250px;
-}
-.product-card h2,
-.product-card h3,
-.product-card p {
-  margin: 0.5em 0;
-}
-.product-card img {
-  margin: 1.5rem auto;
-  display: block;
-}
-
-.quick-view {
-  font-size: 2.5rem;
-  padding: 0.1rem 0.5rem;
-  text-align: center;
-  align-items: center;
-}
-
-.modal {
-  animation: blowUp 0.5s ease-out;
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 650px;
-  height: 70%;
-  padding: 1.3rem;
-  min-height: 250px;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  z-index: 2;
-  text-align: center;
-}
-
-.modal button.close {
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  padding: 1rem;
-}
-
-.modal section {
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-}
-
-.modal section h2 {
-  margin: 1rem;
-}
-
-.modal section img,
-div.product-price-discount {
-  margin: 1rem auto;
-}
-.modal section div.product-price-discount {
-  margin: auto;
-}
-
-.modal section p#productDescriptionHtmlSimple {
-  padding: 0.5rem 1.5rem 0.5rem;
-}
-
-.modal div.product-detail__add {
-  margin: 2rem auto;
-}
-
-.modal section #discountFlag {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-}
-
-@media screen and (max-width: 700px) {
-  .modal {
-    width: 95%;
-    height: 95%;
-    flex-direction: column;
-    overflow-y: scroll;
-  }
-
-  .modal section h3 {
-    margin-top: 2.5rem;
-  }
-  .modal section h2 {
-    grid-column: 1/8;
-    font-size: 1em;
-  }
-
-  .modal button.close {
-    position: relative;
-
-    justify-content: center;
-  }
-
-  .modal section img {
-    display: block;
-    margin: 0 auto;
-    height: 80%;
-  }
-
-  .modal section label {
-    margin: auto;
-  }
-
-  .modal section #discountFlag {
-    display: none;
-  }
-}
-
-@keyframes blowUp {
-  0% {
-    transform: scale(0) translate(-50%, -50%);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1) translate(-50%, -50%);
-    opacity: 1;
-  }
-}
-
-.modal img {
-  display: block;
-  margin: 0 auto;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  z-index: 1;
-}
-
-.hidden {
-  display: none;
-}
-
-.card__brand {
-  font-size: var(--small-font);
-}
-
-.card__name {
-  font-size: 1em;
-}
-
-.product-card__discount {
-  color: red;
-  font-style: italic;
-}
-.breadcrumbs {
-  padding: 10px;
-  font-size: 18px;
-  display: flex;
-}
-.breadcrumbs li {
-  padding: 5px;
-  text-decoration: none;
-  list-style-type: none;
-}
-
-/* End product list card */
-
-.product-detail {
-  padding: 1em;
-  max-width: 500px;
-  margin: 4em auto;
-  background-color: var(--light-grey);
-}
-
-.product-detail img {
-  width: 100%;
-}
-
-#discountFlag {
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 55%);
-  transform: translate(-50%, 55%);
-  width: 100px;
-  padding: 15px;
-  text-align: center;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  color: #ffffff;
-  font-size: 1.4em;
-  border: 4px solid #ffffff;
-}
-
-/* Start cart list card styles */
-.cart-card {
-  display: grid;
-  grid-template-columns: 25% auto 15%;
-  font-size: var(--small-font);
-  /* max-height: 120px; */
-  align-items: center;
-  max-width: 600px;
-  gap: 5px;
-}
-
-.cart-card__image {
-  grid-row: 1/4;
-  grid-column: 1;
-}
-
-.cart-card .card__name {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.cart-card__color {
-  grid-row: 2;
-  grid-column: 2;
-  padding: 5px 0px;
-  margin-bottom: 0px;
-}
-
-.cart-card__quantity {
-  grid-row: 3;
-  grid-column: 2;
-  padding: 0px;
-}
-
-.productQuantity {
-  max-width: 3rem;
-  text-align: center;
-}
-
-.cart-card__price {
-  grid-row: 3;
-  grid-column: 3;
-  text-align: center;
-  margin: 1rem;
-}
-
-.productQuantity {
-  padding: 1px 5px;
-  font-size: inherit;
-}
-
-#closeBtn {
-  grid-row: 1;
-  grid-column: 3;
-  padding: 0.5rem 1rem;
-}
-
-/* Style Cart Total*/
-.cart-total-box {
-  display: none;
-}
-
-.cart-total {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Product price discount */
-.line-through {
-  text-decoration: line-through;
-  font-size: 0.8em;
-  color: #a5a5a5;
-  align-self: flex-end;
-}
-
-.product-price-discount {
-  font-size: 1.4em;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-}
-
-.product-price-discount p {
-  margin: 0 0.3em;
-}
-
-.product-detail__add {
-  margin-bottom: 3.5em;
-}
-
-.product__quantity {
-  display: block;
-  margin: 1rem 0px;
-  text-align: center;
-}
-
-#product-selected-qty {
-  padding: 0.3rem 1em;
-  margin: 1rem 0.5rem;
-  font-size: 1rem;
-}
-
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .mission {
-    font-size: 1.2em;
-  }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15%;
-  }
-}
 
 footer {
   font-size: var(--small-font);
@@ -653,19 +170,20 @@ footer {
 
 .recipeCarousel {
   display: flex;
-  flex-direction: column;
+ flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   position: absolute;
-  top: -200px;
+  top: -180px;
   left: -200px;
 }
 
 .container-images {
   position: relative;
-  display: flex;
+  display: grid;
+  
   align-items: center;
   justify-content: center;
   width: 500px;
@@ -678,6 +196,7 @@ footer {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .on {
   opacity: 1;
@@ -689,9 +208,8 @@ footer {
 
 .buttons-control {
   z-index: 1000;
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 50px 50px;
+  margin-top: 50px;
+  display: flex;
   padding: 10px;
   align-items: center;
   justify-content: center;
@@ -707,9 +225,6 @@ footer {
   z-index: 2000;
 }
 
-.hero-content {
-  display: flex;
-}
 
 
 
@@ -720,20 +235,10 @@ footer {
 
 
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-:root{
-    --tenne-tawny: #d65108;
-    --tenne-tawny-dark: #b54507;
-}
-body{
-    font-weight: 300;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
+
+
+
+
 
 /*  */
 .btn{
@@ -766,16 +271,14 @@ body{
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-    background: #fff;
+    background: white;
     border-radius: 10px;
     text-align: center;
 }
 .meal-search{
     margin: 2rem 0;
 }
-.meal-search cite{
-    font-size: 1rem;
-}
+
 .meal-search-box{
     margin: 1.2rem 0;
     display: flex;
@@ -801,7 +304,7 @@ body{
 .search-btn{
     width: 55px;
     height: 55px;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     background: rgb(129, 255, 97);
     color: #fff;
     border: none;
@@ -815,6 +318,13 @@ body{
 }
 .search-btn:hover{
     background: rgb(68, 145, 49);
+}
+
+.icon-search {
+  max-width: 100%;
+  max-height: 100%;
+  padding-top: 5px;
+  margin-right: 10px;
 }
 .meal-result{
     margin-top: 4rem;
@@ -844,8 +354,8 @@ body{
 }
 .recipe-btn{
     text-decoration: none;
-    color: #fff;
-    background: var(--tenne-tawny);
+    color: #000000;
+    background: rgb(129, 255, 97);
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.75rem 0;
@@ -864,7 +374,8 @@ body{
     -o-transition: all 0.4s linear;
 }
 .recipe-btn:hover{
-    background: var(--tenne-tawny-dark);
+    background: rgb(92, 70, 63);
+    color: white;
 }
 
 /* meal details */
@@ -877,8 +388,8 @@ body{
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    color: #fff;
-    background: var(--tenne-tawny);
+    color: rgb(92, 70, 63);
+    background: var(--primary-color);
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -889,6 +400,7 @@ body{
     overflow-y: scroll;
     display: none;
     padding: 2rem 0;
+    box-shadow: 1px 1px 6px rgb(0, 0, 0);
 }
 .meal-details::-webkit-scrollbar{
     width: 10px;
@@ -979,7 +491,7 @@ body{
     margin: 1.4rem 0;
 }
 .recipe-link a{
-    color: #fff;
+    color: rgb(92, 70, 63);
     font-size: 1.2rem;
     font-weight: 700;
     transition: all 0.4s linear;
@@ -1034,4 +546,111 @@ body{
     #meal{
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+
+/*logo*/
+.logo-culina {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo-culina img{
+  align-items: center;
+  max-width: 300px;
+  justify-self: center;
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.5));
+}
+
+
+/* recipes */
+.recipe-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  margin: 5px 0;
+}
+
+
+
+
+
+@media screen and (min-width: 500px) {
+  body {
+    max-width: 1080px;
+    margin: auto;
+  }
+}
+
+
+
+
+
+
+
+/*add recipe form*/
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+/*input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}*/
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
+/*recipe card style*/
+.recipeDetails{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  height: 600px;
+  border: 2px solid rgb(92, 70, 63);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: auto;
+  background-color: rgb(129, 255, 97);
+}
+.recipe-card ul {
+  list-style-type: disc; /* You can also use 'circle' or 'square' */
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+.recipe-details {
+  display: flex;
+  gap: 10px;
 }

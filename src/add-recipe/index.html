@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Outside | Product List</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/submit.js" ></script>
+    <script src="/js/form.js"></script>
+  </head>
+  <body>
+    <header class="divider" id="main-header">
+      <nav class="nav-buttons">
+        <!-- Navigation buttons -->
+        <a href="../index.html">Home</a>
+        <a href="/my-recipe-list/index.html">My Recipes</a>
+        <a href="/add-recipe/index.html">Add Recipe</a>
+    </nav>
+    </header>
+   
+    <h1>Add a New Recipe</h1>
+
+    <form id="recipeForm">
+      <label for="recipeName">Recipe Name:</label>
+      <input type="text" id="recipeName" required>
+
+      <label for="ingredients">Ingredients:</label>
+      <ul id="ingredientsList"></ul>
+      <input type="text" id="ingredientInput" placeholder="Add ingredient">
+      <button type="button" onclick="addIngredient()">Add</button>
+
+      <label for="instructions">Instructions:</label>
+      <textarea id="instructions" required></textarea>
+
+      <button type="submit">Save Recipe</button>
+      <div class="recipeList" id="recipeList"></div>
+      <button type="button" onclick="viewAllRecipes()">View All Recipes</button>
+     <footer id="main-footer"></footer>
+     <script>
+      
+  </script>
+  
+  </body>
+</html>

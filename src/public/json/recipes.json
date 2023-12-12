@@ -1,0 +1,56 @@
+{
+    "recipes": [
+      {
+        "id": 1,
+        "name": "Spaghetti Bolognese",
+        "portion": "4 servings",
+        "ingredients": [
+          "500g ground beef",
+          "1 onion, chopped",
+          "2 cloves garlic, minced",
+          "1 can (400g) crushed tomatoes",
+          "2 tablespoons tomato paste",
+          "1 teaspoon dried oregano",
+          "1 teaspoon dried basil",
+          "Salt and pepper to taste",
+          "300g spaghetti",
+          "Grated Parmesan cheese for topping"
+        ],
+        "preparation_method": [
+          "In a large skillet, brown the ground beef over medium heat.",
+          "Add chopped onions and minced garlic, sauté until onions are translucent.",
+          "Stir in crushed tomatoes, tomato paste, oregano, basil, salt, and pepper.",
+          "Simmer for 20-30 minutes, stirring occasionally.",
+          "Meanwhile, cook the spaghetti according to package instructions.",
+          "Serve the Bolognese sauce over the cooked spaghetti, topped with grated Parmesan cheese."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Chicken Stir-Fry",
+        "portion": "3 servings",
+        "ingredients": [
+          "400g boneless, skinless chicken breasts, sliced",
+          "2 cups broccoli florets",
+          "1 red bell pepper, sliced",
+          "1 carrot, julienned",
+          "3 tablespoons soy sauce",
+          "2 tablespoons oyster sauce",
+          "1 tablespoon sesame oil",
+          "1 tablespoon vegetable oil",
+          "2 cloves garlic, minced",
+          "1 teaspoon ginger, grated",
+          "Cooked rice for serving"
+        ],
+        "preparation_method": [
+          "In a wok or large skillet, heat vegetable oil over medium-high heat.",
+          "Add sliced chicken and stir-fry until cooked through. Remove from the wok and set aside.",
+          "In the same wok, add sesame oil and sauté garlic and ginger until fragrant.",
+          "Add broccoli, bell pepper, and carrot. Stir-fry until vegetables are tender-crisp.",
+          "Return the cooked chicken to the wok, add soy sauce and oyster sauce. Stir to combine.",
+          "Serve the chicken stir-fry over cooked rice."
+        ]
+      }
+     
+    ]
+  }

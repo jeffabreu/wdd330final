@@ -12,35 +12,46 @@
       <nav class="nav-buttons">
         <!-- Navigation buttons -->
         <a href="#home">Home</a>
-        <a href="#my-recipes">My Recipes</a>
+        <a href="/my-recipe-list/index.html">My Recipes</a>
         <a href="#add-recipe">Add Recipe</a>
     </nav>
+    <a href="#watchlater"></a>
     </header>
     <main class="divider">
       <div class="hero">
         <img
           src="/images/banner.png"
           alt="image paper"
+          class="banner"
         />
         <div class="hero-content">
         <div id="recipeCarousel" class="recipeCarousel">
           
           <div id="container-images" class="container-images">
-            <div class="slider on"><h2>WELCOME</h2>
+            <div class="slider on">
          
-          <p>Type: ${recipe.type}</p>
-          <p>Star Rate: ${recipe.starRate}</p></div>
+              <div><img src="/images/popular/beef-wellington.png" alt="Beef wellington"></div>
+              <div class="recipe-info">
+              <h2>Beef wellington</h2>
+              <p>Italian</p>
+              <p>Star Rate: 5.0</p>
+              </div>
+              
+           
+          </div>
+          
           </div>
           <div class="buttons-control">
             <button id="prev-button">⇐</button><button id="next-button" class="next-button">⇒</button>
         </div>
-        <blockquote>Real food doesn't have ingredients, real food is ingredients.<br>
-          <cite>- Jamie Oliver</cite>
+          </div>
+         
+        
         </div>
         </div>
-        <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-          <div>Sleep<span class="highlight">Outside</span></div>
+        <div class="logo-culina">
+          <img src="/images/culinaChronlogo.png" alt="logo-aquare" />
+          
         </div>
       </div>
       
@@ -56,8 +67,8 @@
       
               <div class = "meal-search-box">
                 <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
-                <button type = "submit" class = "search-btn btn" id = "search-btn">
-                  search
+                <button type = "submit" class = "search-btn" id = "search-btn">
+                  <img src="/images/magnifork.svg" class="icon-search" alt="" srcset="">
                 </button>
               </div>
             </div>
@@ -72,24 +83,12 @@
             <div class = "meal-details">
               <!-- recipe close btn -->
               <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn">
-                <i class = "fas fa-times"></i>
+                x
               </button>
       
               <!-- meal content -->
               <div class = "meal-details-content">
-                <!-- <h2 class = "recipe-title">Meals Name Here</h2>
-                <p class = "recipe-category">Category Name</p>
-                <div class = "recipe-instruct">
-                  <h3>Instructions:</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo blanditiis quis accusantium natus! Porro, reiciendis maiores molestiae distinctio veniam ratione ex provident ipsa, soluta suscipit quam eos velit autem iste!</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aliquam voluptatibus ad obcaecati magnam, esse numquam nisi ut adipisci in?</p>
-                </div>
-                <div class = "recipe-meal-img">
-                  <img src = "food.jpg" alt = "">
-                </div>
-                <div class = "recipe-link">
-                  <a href = "#" target = "_blank">Watch Video</a>
-                </div> -->
+              
               </div>
             </div>
           </div>

@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>Type: ${recipe.type}</p>
           <p>Star Rate: ${recipe.starRate}</p>
           </div>
+          
         `;
         recipeCarouselElement.appendChild(recipeCard);
       });
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       function startSliderInterval() {
-        sliderInterval = setInterval(nextSlider, 3000); // Change 1000 to the desired interval in milliseconds (1 second in this example)
+        sliderInterval = setInterval(nextSlider, 3000); 
       }
 
       function stopSliderInterval() {
@@ -153,24 +154,53 @@ function getMealRecipe(e){
     }
 }
 
+
 // create a modal
-function mealRecipeModal(meal){
-    console.log(meal);
-    meal = meal[0];
-    let html = `
-        <h2 class = "recipe-title">${meal.strMeal}</h2>
-        <p class = "recipe-category">${meal.strCategory}</p>
-        <div class = "recipe-instruct">
-            <h3>Instructions:</h3>
-            <p>${meal.strInstructions}</p>
-        </div>
-        <div class = "recipe-meal-img">
-            <img src = "${meal.strMealThumb}" alt = "">
-        </div>
-        <div class = "recipe-link">
-            <a href = "${meal.strYoutube}" target = "_blank">Watch Video</a>
-        </div>
-    `;
-    mealDetailsContent.innerHTML = html;
-    mealDetailsContent.parentElement.classList.add('showRecipe');
+function mealRecipeModal(meal) {
+  meal = meal[0];
+  let html = `
+      <h2 class="recipe-title">${meal.strMeal}</h2>
+      <p class="recipe-category">${meal.strCategory}</p>
+      <div class="recipe-instruct">
+          <h3>Instructions:</h3>
+          <p>${meal.strInstructions}</p>
+      </div>
+      <div class="recipe-meal-img">
+          <img src="${meal.strMealThumb}" alt="">
+      </div>
+      <div class="recipe-link">
+          <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
+      </div>
+      <button id="watchLaterBtn">Watch Later</button>
+  `;
+  mealDetailsContent.innerHTML = html;
+  mealDetailsContent.parentElement.classList.add('showRecipe');
+
+  // Add event listener for Watch Later button
+  const watchLaterBtn = document.getElementById('watchLaterBtn');
+  watchLaterBtn.addEventListener('click', () => {
+      addToWatchLater(meal);
+  });
+}
+
+// function to add meal to Watch Later
+function addToWatchLater(meal) {
+  // Retrieve existing Watch Later items from local storage or initialize an empty array
+  const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
+
+  // Check if the meal is already in Watch Later
+  const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
+
+  if (!isAlreadyInWatchLater) {
+      // Add the meal to Watch Later
+      watchLaterItems.push(meal);
+
+      // Update local storage
+      localStorage.setItem('watchLaterItems', JSON.stringify(watchLaterItems));
+
+      // Optionally, provide some feedback to the user
+      alert('Added to Watch Later!');
+  } else {
+      alert('This meal is already in Watch Later.');
+  }
 }

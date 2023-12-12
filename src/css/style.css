@@ -823,4 +823,16 @@ li {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  background-color: rgb(92, 70, 63);
+  color: white;
+}
+.watch-later-item a,.watch-later-item h2 {
+  color: white;
+}
+
+.watch-later-item button {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }

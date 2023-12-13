@@ -1,15 +1,15 @@
-// Wait for the DOM content to be fully loaded before executing the script
+// Wait for the DOM content 
 document.addEventListener('DOMContentLoaded', () => {
-  let sliderInterval; // Variable to store the interval ID
+  let sliderInterval; // Variable to store the interval ID for the time of transition in the carousel
 
-  // Fetch JSON data from the 'popular.json' file
+  // Fetch JSON data from the popular.json file
   fetch('json/popular.json')
     .then(response => response.json())
     .then(data => {
       // Process the data and update the carousel
       const recipeCarouselElement = document.getElementById('container-images');
 
-      // Iterate through each recipe in the data
+      // Goes through each recipe in the data
       data.forEach((recipe, index) => {
         // Create a div element for each recipe and add it to the carousel
         const recipeCard = document.createElement('div');
@@ -128,6 +128,7 @@ recipeCloseBtn.addEventListener('click', () => {
   mealDetailsContent.parentElement.classList.remove('showRecipe');
 });
 
+//Using API
 // Function to get meal list that matches with the ingredients
 function getMealList() {
   let searchInputTxt = document.getElementById('search-input').value.trim();
@@ -207,10 +208,10 @@ function mealRecipeModal(meal) {
 
 // Function to add a meal to Watch Later
 function addToWatchLater(meal) {
-  // Retrieve existing Watch Later items from local storage or initialize an empty array
+  // Retrieve existing Watch Later items from local storage 
   const watchLaterItems = JSON.parse(localStorage.getItem('watchLaterItems')) || [];
 
-  // Check if the meal is already in Watch Later
+  // Check if the meal is already in Watch Later list
   const isAlreadyInWatchLater = watchLaterItems.some(item => item.idMeal === meal.idMeal);
 
   if (!isAlreadyInWatchLater) {

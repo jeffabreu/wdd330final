@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check if there are items in the watch later list
     if (watchLaterItems.length > 0) {
-        // Create HTML for each watch later item with a class
+        // Create HTML for each watch later item with a class which is 'watch-later-item' to style that
         const watchLaterListHTML = watchLaterItems.map(item => `
             <div class="watch-later-item">
                 <h2 class="watch-later-title">${item.strMeal}</h2>
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update the watch later list container with the HTML
         watchLaterListContainer.innerHTML = watchLaterListHTML;
 
-        // Add event listeners to the "Already Watched" buttons
+        // Add event listeners to the "Already Watched" button so it can be deleted
         const alreadyWatchedButtons = document.querySelectorAll('.already-watched-btn');
         alreadyWatchedButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     } else {
         // Display a message if the watch later list is empty
-        watchLaterListContainer.innerHTML = '<p>No items in the watch later list</p>';
+        watchLaterListContainer.innerHTML = '<p>No items in the watch later list, go the the main page!</p>';
     }
 });
 

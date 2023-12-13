@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check if in edit mode by looking for 'edit' parameter in the URL
         const urlParams = new URLSearchParams(window.location.search);
+        //variable to store the edit index
         const editIndex = urlParams.get('edit');
 
         if (editIndex !== null) {
@@ -36,14 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save the updated recipes to local storage
         localStorage.setItem('recipes', JSON.stringify(recipes));
 
-        // Reload the page to reflect changes
+        // Reload the page 
         window.location.reload();
     });
     
     updateWatchLaterItemsQuantity();
 });
-
+//
 // Function to add a new ingredient to the ingredients list
+//Similar to the form 
 function addIngredient() {
     const ingredientInput = document.getElementById('ingredientInput');
     const ingredientsList = document.getElementById('ingredientsList');

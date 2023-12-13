@@ -1,4 +1,4 @@
-// Wait for the DOM content to be fully loaded before executing the script
+// Wait for the DOM content
 document.addEventListener('DOMContentLoaded', () => {
   // Retrieve stored recipes from localStorage or initialize an empty array
   const recipes = JSON.parse(localStorage.getItem('recipes')) || [];

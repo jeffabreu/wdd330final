@@ -1,10 +1,10 @@
-// Wait for the DOM content to be fully loaded before executing the script
+// Wait for the DOM content
 document.addEventListener('DOMContentLoaded', () => {
-    // Retrieve the 'edit' parameter from the URL query string
+    // Check is the edit oarameter in on the url
     const urlParams = new URLSearchParams(window.location.search);
     const editIndex = urlParams.get('edit');
   
-    // Check if 'edit' parameter is present
+    // Check if the edit parameter is present
     if (editIndex !== null) {
       // If editing, retrieve stored recipes from localStorage or initialize an empty array
       const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pre-fill the form with the details of the recipe being edited
         document.getElementById('recipeName').value = recipeToEdit.name;
   
-        // Clear existing ingredients list
+        // Clean existing ingridient
         const ingredientsList = document.getElementById('ingredientsList');
         ingredientsList.innerHTML = '';
   
-        // Display ingredients with delete option
+        // Display ingredien with delete option
         recipeToEdit.ingredients.forEach((ingredient, index) => {
-          // Create a list item for each ingredient with a class 'ingredient-item'
+          // Creates a list of items for the ingridients
           const li = document.createElement('li');
           li.textContent = ingredient;
           li.classList.add('ingredient-item'); // Add the 'ingredient-item' class
   
-          // Create a delete button for each ingredient
+          // Add a delete button
           const deleteButton = document.createElement('button');
           deleteButton.textContent = 'x';
   
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ingredientsList.appendChild(li);
         });
   
-        // Set the instructions field with the instructions of the recipe being edited
+        // Set the instructions field with the instructions of the recipe being edited from the localstorage
         document.getElementById('instructions').value = recipeToEdit.instructions;
       }
     }
